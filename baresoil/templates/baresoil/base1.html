@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  {% load static %}
+  {% load leaflet_tags %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bare soil calculator: {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    {% leaflet_css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.css"/>
+    <link href= {% static "baresoil/style.css" %} rel="stylesheet"></link>
+    {% block head %}
+    {% endblock %}
+  </head>
+  <body class="has-navbar-fixed-top">
+    <nav class="navbar is-link is-fixed-top" id = "nb" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item has-text-primary-dark has-background-link-light is-size-3 has-text-justified pr-5 pl-5" 
+          href="/home">
+            <strong>Bare soil calculator</strong>
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar1">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      
+        <div id="navbar1" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item" href="/home">
+              Select area
+            </a>
+      
+            <a class="navbar-item" href="/ndvi">
+              Select NDVI value
+            </a>
+
+            <a class="navbar-item" href="/latest">
+                Latest items 
+            </a>
+
+            <a class="navbar-item" href="/about">
+              About 
+            </a>
+          </div>
+        </div>
+      </nav>
+  <section class="section ">
+    <div class="columns">
+        <div class="column">
+            {% block panel %}
+            {% endblock %}
+        </div>
+        <div class="column is-half">
+            {% block map %}
+            {% endblock %}
+        </div>
+        <div class="column">
+            {% block latest %}
+            <nav class="panel">
+              <div class="panel-heading" >
+                <a href="/latest">Go to latest items</a>
+              </div>
+              <div class="panel-block">
+                <img  src = {% static 'baresoil/latest.JPG' %} alt = "Latest images">
+              </div>
+            </nav>
+            {% endblock %}
+        </div>
+      </div>
+  </section>
+  <script src= {% static "baresoil/base.js" %}></script>
+  {% leaflet_js %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.js"></script>
+  {% block script %}
+  {% endblock %}
+  </body>
+</html>

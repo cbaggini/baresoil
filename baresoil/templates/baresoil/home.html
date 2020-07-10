@@ -1,0 +1,52 @@
+{% extends "baresoil/base1.html" %}
+{% load static %}
+
+{% block title %}Select area and date range{% endblock %}
+
+{% block panel %}
+<form action= {% url 'ndvi' %} method="POST" id="areaform">{% csrf_token %}
+    <nav class="panel">
+        <p class="panel-heading">
+        Select a month
+        </p>
+        <div class="panel-block">
+            If part of the selected area is cloudy, 
+            data from the previous and following month will be searched as well.
+        </div>
+        <div class="field is-grouped is-grouped-centered">
+            <div id="mnth" name="mnth" class="field is-horizontal my-3">{{ form.mnth }}</div>
+            <div id="yr" name="yr" class="field is-horizontal my-3">{{ form.yr }}</div>
+            <div id="nelat" type="text">{{ form.nelat }}</div>
+            <div id="nelng" type="text">{{ form.nelng }}</div>
+            <div id="swlat" type="text">{{ form.swlat }}</div>
+            <div id="swlng" type="text">{{ form.swlng }}</div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block map %}
+    {% if invalid_input == 'noarea' %}
+    <div class="notification is-warning">
+        <strong>You need to select an area. </strong>
+    </div>
+    {% elif invalid_input == "nodata" %}
+    <div class="notification is-warning">
+        <strong>No data available for your selected area and period. </strong>
+    </div>
+    {% elif invalid_input == "success" %}
+    <div class="notification is-success">
+        <strong>Layers successfully saved. </strong>
+    </div>
+    {% endif %}
+    <div id = 'map_area'></div>
+    <div class="column">After selecting a date range and drawing an area, 
+        click "Next" to proceed.</div>
+    <input class = "button is-success is-pulled-right" id = "tondvi" type="submit" value="Next"></input>
+</form>
+    
+    
+{% endblock %}
+
+{% block script %}
+    <script src= {% static "baresoil/map_area.js" %}></script>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "baresoil/base1.html" %}
+
+{% block title %}Latest queries{% endblock %}
+
+{% block panel %}
+<nav class="panel">
+    <p class="panel-heading">
+    Look at the five most recent queries
+    </p>
+</nav>
+{% endblock %}
+
+{% block map %}
+<div class = "box py-3">
+    Query performed on {{ request_datetime1 }} UTC; data for {{ mnth1 }} {{ yr1 }} 
+    with NDVI between {{ ndvi_low1 }} and  {{ ndvi1 }}.
+    <div>{{map1|safe}}</div>
+</div>
+<div class = "box py-3">
+    Query performed on {{ request_datetime2 }} UTC; data for {{ mnth2 }} {{ yr2 }} 
+    with NDVI between {{ ndvi_low2 }} and  {{ ndvi2 }}.
+    <div>{{map2|safe}}</div>
+</div>
+<div class = "box py-3">
+    Query performed on {{ request_datetime3 }} UTC; data for {{ mnth3 }} {{ yr3 }} 
+    with NDVI between {{ ndvi_low3 }} and  {{ ndvi3 }}.
+    <div>{{map3|safe}}</div>
+</div>
+<div class = "box py-3">
+    Query performed on {{ request_datetime4 }} UTC; data for {{ mnth4 }} {{ yr4 }} 
+    with NDVI between {{ ndvi_low4 }} and  {{ ndvi4 }}.
+    <div>{{map4|safe}}</div>
+</div>
+<div class = "box py-3">
+    Query performed on {{ request_datetime5 }} UTC; data for {{ mnth5 }} {{ yr5 }} 
+    with NDVI between {{ ndvi_low5 }} and  {{ ndvi5 }}.
+    <div>{{map5|safe}}</div>
+</div>
+{% endblock %}
+
+{% block latest %}
+{% endblock %}
