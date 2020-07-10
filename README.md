@@ -9,4 +9,6 @@ pixels in the selected NDVI range. A cloud mask layer is produced by selecting t
 
 The user can save the parameters of the request to the website database, and the latest five saved queries will be shown in the "Latest items" page.
 
+Demo at https://tranquil-falls-73463.herokuapp.com/home/
+
 
