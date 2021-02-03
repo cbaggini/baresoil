@@ -1,8 +1,3 @@
-
-
-
-
-
 <p align="center">
 
   <h3 align="center">Bare soil calculator</h3>
