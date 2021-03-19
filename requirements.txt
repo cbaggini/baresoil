@@ -1,4 +1,4 @@
-Django==3.0.7
+Django==3.1.6
 django_heroku==0.3.1
 earthengine-api==0.1.226
 folium==0.11.0
